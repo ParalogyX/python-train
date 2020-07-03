@@ -182,6 +182,27 @@ def test_isValidWord(wordList):
         
         failure = True        
 
+
+     # test 7
+    word = "evl"
+
+    if  isValidWord(word, hand, wordList):
+        print("FAILURE: test_isValidWord()")
+        print("\tExpected False, but got True for word: '" + word + "' and hand:", hand)
+        print("\t(If this is the only failure, make sure isValidWord() isn't mutating its inputs)")
+        
+        failure = True        
+        
+    # test 8
+    word = ""
+
+    if  isValidWord(word, hand, wordList):
+        print("FAILURE: test_isValidWord()")
+        print("\tExpected False, but got True for word: '" + word + "' and hand:", hand)
+        print("\t(If this is the only failure, make sure isValidWord() isn't mutating its inputs)")
+        
+        failure = True        
+
     if not failure:
         print("SUCCESS: test_isValidWord()")
 
