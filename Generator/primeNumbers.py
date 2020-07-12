@@ -7,22 +7,42 @@ Created on Sun Jul 12 19:50:47 2020
 
 
 def genPrimes():
-    prime_1 = 2
-    prime_2 = 3
+    primeList = []
+    nextPrime = 2
+
     while True:
-        if (prime_2%prime_1) != 0:
-            #to keep a list?
-            print("prime_1 = " + str (prime_1))
-            print("prime_2 = " + str (prime_2))
-            next = prime_2
-            yield next
-            prime_1 = prime_2
-            prime_2 = next
-            
+        if nextPrime == 2:
+            isPrime = True
         else:
-            prime_2 += 1
-            print("not prime: " + str(prime_2))
-        
+            
+            for prime in primeList:
+                if (nextPrime%prime) != 0:
+                    isPrime = True
+                else:
+                    isPrime = False
+                    break
+
+                
+        if isPrime:
+            primeList.append(nextPrime)
+            next = nextPrime
+            yield next
+        nextPrime += 1
+#better solution:
+    
+# =============================================================================
+# def genPrimes():
+#     primes = []   # primes generated so far
+#     last = 1      # last number tried
+#     while True:
+#         last += 1
+#         for p in primes:
+#             if last % p == 0:
+#                 break
+#         else:
+#             primes.append(last)
+#             yield last
+# =============================================================================
         
 def genFib():
     fibn_1 = 1 #fib(n-1)
